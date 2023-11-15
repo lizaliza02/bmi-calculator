@@ -1,0 +1,32 @@
+def calc_bmr(weight, height, age, gender):
+if gender == 'M' or gender == 'm':
+bmr= 88.362 + (13.397*weight) + (4.799*height)- (5.677*age)
+elif gender == "F" or gender == 'f':
+bmr= 447.593 + (9.247*weight)+ (3.098*height) - (4.330*age)
+else:
+raise ValueError("Invalid input.Try again.")
+return bmr
+def calc_kc_intake(bmr, exercise_level):
+if exercise_level == 0:
+kc_intake = bmr * 1.2
+elif exercise_level == 1:
+kc_intake = bmr * 1.375
+elif exercise_level == 2:
+kc_intake = bmr * 1.55
+elif exercise_level == 3:
+kc_intake = bmr * 1.725
+elif exercise_level == 4:
+kc_intake = bmr * 1.9
+else:
+raise ValueError("Invalid input. Try Again.")
+return kc_intake
+weight = float(input("Enter the weight(in kg)."))
+height = float(input("Enter the height(in cm)."))
+age = int(input("Enter the age(in years)."))
+gender = input("Enter the gender(m/f).")
+exercise_level =int(input("Enter the weekly exercise level(0-4)."))
+bmr = calc_bmr(weight, height, age, gender)
+kc_intake = calc_kc_intake(bmr, exercise_level)
+print("YOUR BMR IS: ",bmr)
+print("YOUR DAILY KILOCALORIE INTAKE IS: ",kc_intake)
+print("THANK YOU FOR TRYING.")
